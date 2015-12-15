@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    jcenter()
+}
+
+idea {
+    module {
+        // We really appreciate having Javadoc for dependencies :)
+        downloadJavadoc = true
+    }
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile 'org.jsoup:jsoup:1.8.3'
+    compile 'io.reactivex:rxjava:1.1.+'
+    compile 'io.reactivex:rxjava-async-util:0.21.+'
+    compile 'com.github.davidmoten:rxjava-extras:0.7'
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.0'
+}
