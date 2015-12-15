@@ -47,8 +47,8 @@ public class Playground5 {
                 .subscribeOn(Schedulers.newThread())
                 .map(this::makeRequest) // Create OkHttp Requests from URLs.
                 .compose(new RxOkHttpCall(client)) // Get Responses by executing Requests.
-                //.observeOn(Schedulers.computation())
                 .map(this::parseDocFromRespBody)
+                .observeOn(Schedulers.computation())
                 .map(this::safeGetTitleFromDoc)
                 .toList()
                 .observeOn(Schedulers.immediate())
